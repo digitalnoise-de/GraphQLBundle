@@ -9,7 +9,7 @@ use Youshido\GraphQL\Parser\Ast\Field;
 class ResolveEvent extends GenericEvent
 {
     /**
-     * @var Field */
+     * @var FieldInterface */
     private $field;
 
     /** @var array */

@@ -5,7 +5,7 @@
         http://symfony.com/schema/routing/routing-1.0.xsd">
 
     <route id="youshido_graphql_graphql_default" path="/graphql">
-        <default key="_controller">GraphQLBundle:GraphQL:default</default>
+        <default key="_controller">graphql.controller.graphql::defaultAction</default>
     </route>
 
     <route id="youshido_graphql_graphqlexplorer_explorer" path="/graphql/explorer">

@@ -11,7 +11,9 @@
     </parameters>
 
     <services>
-        <service id="graphql.schema" synthetic="true" public="true"/>
+        <defaults autowire="true" autoconfigure="true"/>
+
+        <service id="graphql.schema" public="true" class="%graphql.schema_class%"/>
 
         <service id="graphql.processor" class="%graphql.processor.class%" public="true">
             <argument type="service" id="graphql.execution_context" />
@@ -49,8 +51,9 @@
             <tag name="security.voter" priority="255" />
         </service>
 
-        <service id="graphql.command.configure" class="Youshido\GraphQLBundle\Command\GraphQLConfigureCommand">
-            <tag name="console.command" command="graphql:configure"/>
+        <service id="graphql.controller.graphql" class="Youshido\GraphQLBundle\Controller\GraphQLController" public="true">
+            <tag name="controller.service_arguments" />
+            <argument type="service" id="graphql.processor"/>
         </service>
     </services>
 </container>

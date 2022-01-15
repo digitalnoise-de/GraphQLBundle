@@ -17,15 +17,16 @@ class WhitelistVoter extends AbstractListVoter
     /**
      * Perform a single access check operation on a given attribute, subject and token.
      *
-     * @param string         $attribute
-     * @param mixed          $subject
+     * @param string $attribute
+     * @param mixed $subject
      * @param TokenInterface $token
      *
      * @return bool
      */
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token)
     {
-        /** @var $subject Query */
+        assert($subject instanceof Query);
+        
         return $this->isLoggedInUser($token) || $this->inList($subject->getName());
     }
 }
